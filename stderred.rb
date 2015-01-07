@@ -6,10 +6,8 @@ class Stderred < Formula
 
     depends_on 'cmake' => :build
 
-    option :universal
-
     def install
-        ENV.universal_binary if build.universal?
+        ENV.universal_binary if OS.mac?
         mkdir 'build' do
             system "cmake", '../src', *std_cmake_args
             system 'make', 'install'
