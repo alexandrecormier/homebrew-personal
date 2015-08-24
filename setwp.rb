@@ -9,6 +9,12 @@ class Setwp < Formula
 
     sha256 "2621de6b493cb354281c1de7bf4c42d383e3e0f774e40da89299dd0b45ae8fb2"
 
+    bottle do
+        cellar :any
+        root_url "https://github.com/alexandrecormier/setwp/releases/download/v1.0.1"
+        sha256 "e28d666b5c3b917e907f9c36ead2b520b5dee45b8b1c863f771fd0adc9625550" => :yosemite
+    end
+
     depends_on :macos => :yosemite
     depends_on "go" => :build
 
