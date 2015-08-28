@@ -4,15 +4,15 @@ class Setwp < Formula
     desc "Command line utility to set wallpaper on Yosemite"
 
     homepage "https://github.com/alexandrecormier/setwp"
-    url "https://github.com/alexandrecormier/setwp/archive/v1.0.1.tar.gz"
+    url "https://github.com/alexandrecormier/setwp/archive/v1.0.2.tar.gz"
     head "https://github.com/alexandrecormier/setwp.git"
 
-    sha256 "2621de6b493cb354281c1de7bf4c42d383e3e0f774e40da89299dd0b45ae8fb2"
+    sha256 "e35f68bb0abeb3e7762469bac1eb42d1bad7bc428265a219417cc2ad1b83b0d9"
 
     bottle do
         cellar :any
-        root_url "https://github.com/alexandrecormier/setwp/releases/download/v1.0.1"
-        sha256 "e28d666b5c3b917e907f9c36ead2b520b5dee45b8b1c863f771fd0adc9625550" => :yosemite
+        root_url "https://github.com/alexandrecormier/setwp/releases/download/v1.0.2"
+        sha256 "5a9b7071e95c9b99a726b52f8fd64c78a555324650b446f10b42796868b46dfb" => :yosemite
     end
 
     depends_on :macos => :yosemite
