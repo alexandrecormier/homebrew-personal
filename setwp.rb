@@ -4,15 +4,15 @@ class Setwp < Formula
     desc "Command line utility to set wallpaper on Yosemite"
 
     homepage "https://github.com/alexandrecormier/setwp"
-    url "https://github.com/alexandrecormier/setwp/archive/v1.0.2.tar.gz"
+    url "https://github.com/alexandrecormier/setwp/archive/v1.0.3.tar.gz"
     head "https://github.com/alexandrecormier/setwp.git"
 
-    sha256 "e35f68bb0abeb3e7762469bac1eb42d1bad7bc428265a219417cc2ad1b83b0d9"
+    sha256 "87602e6e598522a86c4d7abe69e5d073fd438904ee44022ba29bd9b79e72e84b"
 
     bottle do
         cellar :any
-        root_url "https://github.com/alexandrecormier/setwp/releases/download/v1.0.2"
-        sha256 "5a9b7071e95c9b99a726b52f8fd64c78a555324650b446f10b42796868b46dfb" => :yosemite
+        root_url "https://github.com/alexandrecormier/setwp/releases/download/v1.0.3"
+        sha256 "86148dedd9f8fdbf0497008f04cd49820c96d9062e563a21022a5a9bb5b4d588" => :yosemite
     end
 
     depends_on :macos => :yosemite
@@ -25,7 +25,7 @@ class Setwp < Formula
 
     go_resource "github.com/mattn/go-sqlite3" do
         url "https://github.com/mattn/go-sqlite3.git",
-        :revision => "8897bf145272af4dd0305518cfb725a5b6d0541c"
+        :revision => "897b8800a7d1a93518b87c00e5d1c5d7476f3701"
     end
 
     def install
