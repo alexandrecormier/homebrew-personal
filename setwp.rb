@@ -1,18 +1,20 @@
 require 'language/go'
 
 class Setwp < Formula
-    desc "Command line utility to set wallpaper on Yosemite"
+    desc "Command line utility to set wallpaper on Yosemite and up"
 
-    homepage "https://github.com/alexandrecormier/setwp"
-    url "https://github.com/alexandrecormier/setwp/archive/v1.0.3.tar.gz"
-    head "https://github.com/alexandrecormier/setwp.git"
+    homepage "https://github.com/alexcormier/setwp"
+    url "https://github.com/alexcormier/setwp/archive/v1.1.0.tar.gz"
+    head "https://github.com/alexcormier/setwp.git"
 
-    sha256 "87602e6e598522a86c4d7abe69e5d073fd438904ee44022ba29bd9b79e72e84b"
+    sha256 "93ab8e3dd812196c715d7b920c09439090bef4191fd55eeaed567b3fe0463b36"
 
     bottle do
         cellar :any
-        root_url "https://github.com/alexandrecormier/setwp/releases/download/v1.0.3"
-        sha256 "86148dedd9f8fdbf0497008f04cd49820c96d9062e563a21022a5a9bb5b4d588" => :yosemite
+        root_url "https://github.com/alexcormier/setwp/releases/download/v1.1.0"
+        sha256 "1513b4e2097bf1f77de953971df55f173fde98009ba3223ae0376fb46192ebee" => :yosemite
+        sha256 "1513b4e2097bf1f77de953971df55f173fde98009ba3223ae0376fb46192ebee" => :el_capitan
+        sha256 "1513b4e2097bf1f77de953971df55f173fde98009ba3223ae0376fb46192ebee" => :sierra
     end
 
     depends_on :macos => :yosemite
@@ -20,19 +22,25 @@ class Setwp < Formula
 
     go_resource "github.com/docopt/docopt-go" do
         url "https://github.com/docopt/docopt-go.git",
-        :revision => "854c423c810880e30b9fecdabb12d54f4a92f9bb"
+        :revision => "784ddc588536785e7299f7272f39101f7faccc3f"
     end
 
     go_resource "github.com/mattn/go-sqlite3" do
         url "https://github.com/mattn/go-sqlite3.git",
-        :revision => "897b8800a7d1a93518b87c00e5d1c5d7476f3701"
+        :revision => "2d44decb4941c9cdf72c22297b7890faf7da9bcb"
+    end
+
+    # needed for go-sqlite3
+    go_resource "golang.org/x/net" do
+        url "https://github.com/golang/net.git",
+        :revision => "8fd7f25955530b92e73e9e1932a41b522b22ccd9"
     end
 
     def install
         ENV["GOPATH"] = buildpath
 
-        mkdir_p buildpath/"src/github.com/alexandrecormier/"
-        ln_s buildpath, buildpath/"src/github.com/alexandrecormier/setwp"
+        mkdir_p buildpath/"src/github.com/alexcormier/"
+        ln_s buildpath, buildpath/"src/github.com/alexcormier/setwp"
         Language::Go.stage_deps resources, buildpath/"src"
 
         system "go", "build", "-o", "setwp"
